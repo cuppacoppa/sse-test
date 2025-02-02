@@ -23,6 +23,7 @@ export const routeDispatcher = (): RouteDispatcher => {
         // Site paes
         '/': HomePage,
         '/partner/*': PartnerPage, 
+        '/partner': PartnerPage, 
         // TEST Pages
 
     };

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/pages/partner.ts"],
+  "sourcesContent": ["\r\n/*\r\n * Page | Partner\r\n */\r\n\r\nimport { IModule } from \"@sygnal/sse\";\r\n \r\n\r\nexport class PartnerPage implements IModule {\r\n\r\n  constructor() {\r\n  }\r\n\r\n  setup() {\r\n        \r\n  }\r\n\r\n  exec() {\r\n    console.log('partner page loaded')\r\n  }\r\n\r\n}\r\n"],
+  "mappings": ";;;AAQO,MAAM,cAAN,MAAqC;AAAA,IAE1C,cAAc;AAAA,IACd;AAAA,IAEA,QAAQ;AAAA,IAER;AAAA,IAEA,OAAO;AACL,cAAQ,IAAI,qBAAqB;AAAA,IACnC;AAAA,EAEF;",
+  "names": []
+}

@@ -369,11 +369,24 @@
     }
   };
 
+  // src/pages/partner.ts
+  var PartnerPage = class {
+    constructor() {
+    }
+    setup() {
+    }
+    exec() {
+      console.log("partner page loaded");
+    }
+  };
+
   // src/routes.ts
   var routeDispatcher = () => {
     var routeDispatcher2 = new RouteDispatcher(Site);
     routeDispatcher2.routes = {
-      "/": HomePage
+      "/": HomePage,
+      "/partner/*": PartnerPage,
+      "/partner": PartnerPage
     };
     return routeDispatcher2;
   };
