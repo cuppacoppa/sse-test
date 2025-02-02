@@ -15,6 +15,7 @@ import { routeDispatcher } from "./routes";
 import { initSSE } from "@sygnal/sse"; 
 import { ComponentManager } from "./engine/component-manager";
 import { TestComponent } from "./components/test";
+import { ToggleText } from './components/toggleText';
 
 interface SiteGlobalDataType {
     // Define properties and their types for SiteDataType
@@ -24,6 +25,10 @@ interface SiteGlobalDataType {
     // Add other properties as needed
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = new ToggleText('toggle-button', 'toggle-text');
+  });
+  
 // Global vars
 const SITE_NAME = 'Site';
 
