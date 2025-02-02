@@ -28,7 +28,7 @@ interface SiteGlobalDataType {
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = new ToggleText('toggle-button', 'toggle-text');
   });
-  
+
 // Global vars
 const SITE_NAME = 'Site';
 
