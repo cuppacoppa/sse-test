@@ -1,6 +1,7 @@
-// src/components/PartnerCard.ts
-
-export function bigPartnerCard(partner: { name: string; description: string; logoUrl: string }): string {
+"use strict";
+(() => {
+  // src/components/bigPartnerCard.ts
+  function bigPartnerCard(partner) {
     return `
       <div class="partner-card">
         <img src="${partner.logoUrl}" alt="${partner.name} logo" class="partner-card__logo" />
@@ -9,4 +10,5 @@ export function bigPartnerCard(partner: { name: string; description: string; log
       </div>
     `;
   }
-  
+})();
+//# sourceMappingURL=bigPartnerCard.js.map

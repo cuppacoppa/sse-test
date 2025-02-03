@@ -407,6 +407,17 @@
     }
   };
 
+  // src/components/bigPartnerCard.ts
+  function bigPartnerCard(partner) {
+    return `
+      <div class="partner-card">
+        <img src="${partner.logoUrl}" alt="${partner.name} logo" class="partner-card__logo" />
+        <h2 class="partner-card__name">${partner.name}</h2>
+        <p class="partner-card__description">${partner.description}</p>
+      </div>
+    `;
+  }
+
   // src/index.ts
   var SITE_NAME = "Site";
   window.componentManager = new ComponentManager();
@@ -424,6 +435,16 @@
         switch (componentValue) {
           case "test":
             new TestComponent(element).exec();
+            break;
+          case "big-partner-card-list":
+            const container = element;
+            const partners = [
+              { name: "Partner A", description: "Description for Partner A", logoUrl: "path/to/logoA.png" },
+              { name: "Partner B", description: "Description for Partner B", logoUrl: "path/to/logoB.png" }
+            ];
+            partners.forEach((partner) => {
+              container.innerHTML += bigPartnerCard(partner);
+            });
             break;
           default:
             console.log("Unknown component:", componentValue);
