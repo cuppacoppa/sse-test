@@ -1,8 +1,9 @@
-export const applicationPartnerCard = (partner: { name: string, logoUrl: string }) => {
-    return `
-      <div class="partner-card app-partner-card">
-        <img src="${partner.logoUrl}" alt="${partner.name}" class="partner-logo" />
+export const applicationPartnerCard = (partner: { logoUrl: string }) => {
+  return `
+    <div class="logo-card application-partner">
+      <div class="logo-card__content">
+        <img src="${partner.logoUrl}" alt="Application Partner Logo" loading="lazy">
       </div>
-    `;
-  };
-  
+    </div>
+  `;
+};

@@ -104,13 +104,15 @@ const exec = () => {
                     });
                     break;
     
-                case 'application-partner-card-list': 
-                    const appPartnerSection = element;
+                    case 'application-partner-card-list': 
+                    const appPartnerSection = element;  // Get the section where app partners will be rendered
                     const partnersApp = [
-                        { name: 'App Partner A', logoUrl: 'path/to/app-logoA.png' },
-                        { name: 'App Partner B', logoUrl: 'path/to/app-logoB.png' },
+                        { logoUrl: 'path/to/app-logoA.png' },
+                        { logoUrl: 'path/to/app-logoB.png' },
                     ];
+                
                     partnersApp.forEach((partner) => {
+                        // Assuming applicationPartnerCard returns HTML for each partner, add it to the container
                         appPartnerSection.innerHTML += applicationPartnerCard(partner);
                     });
                     break;

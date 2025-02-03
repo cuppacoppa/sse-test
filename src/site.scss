@@ -1,22 +1,11 @@
+/* General Logo Card */
 .logo-card {
   position: relative;
   width: 100%;
   max-width: 250px; /* Adjust based on your layout */
   margin: 15px;
-  border: 1px solid #ddd; /* Add border if needed */
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &__link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: block;
-    z-index: 2; /* Ensures the link is clickable */
-  }
 
   &__content {
     padding: 15px;
@@ -32,6 +21,37 @@
     height: auto;
     margin-bottom: 10px;
   }
+}
+
+/* Main Partner Card Styles */
+.main-partner {
+  border: 1px solid #ddd; /* Add border for main partners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Indicates that the card is clickable */
+
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 2; /* Ensures the link is clickable */
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff; /* White background */
+    padding: 15px;
+
+    /* Highlight the link area when hovered */
+    &:hover {
+      background-color: #f9f9f9; /* Slightly darker background on hover */
+    }
+  }
 
   &__content h3 {
     font-size: 1.2rem;
@@ -44,5 +64,16 @@
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Application Partner Card Styles (No hover, no border) */
+.application-partner {
+  /* No border, no hover effects for application partners */
+  border: none;
+
+  &:hover {
+    transform: none; /* No hover effect */
+    box-shadow: none; /* No box-shadow */
   }
 }

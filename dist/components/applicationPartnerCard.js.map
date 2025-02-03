@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../src/components/applicationPartnerCard.ts"],
-  "sourcesContent": ["export const applicationPartnerCard = (partner: { name: string, logoUrl: string }) => {\r\n    return `\r\n      <div class=\"partner-card app-partner-card\">\r\n        <img src=\"${partner.logoUrl}\" alt=\"${partner.name}\" class=\"partner-logo\" />\r\n      </div>\r\n    `;\r\n  };\r\n  "],
-  "mappings": ";;;AAAO,MAAM,yBAAyB,CAAC,YAA+C;AAClF,WAAO;AAAA;AAAA,oBAES,QAAQ,iBAAiB,QAAQ;AAAA;AAAA;AAAA,EAGnD;",
+  "sourcesContent": ["export const applicationPartnerCard = (partner: { logoUrl: string }) => {\r\n  return `\r\n    <div class=\"logo-card application-partner\">\r\n      <div class=\"logo-card__content\">\r\n        <img src=\"${partner.logoUrl}\" alt=\"Application Partner Logo\" loading=\"lazy\">\r\n      </div>\r\n    </div>\r\n  `;\r\n};\r\n"],
+  "mappings": ";;;AAAO,MAAM,yBAAyB,CAAC,YAAiC;AACtE,WAAO;AAAA;AAAA;AAAA,oBAGW,QAAQ;AAAA;AAAA;AAAA;AAAA,EAI5B;",
   "names": []
 }

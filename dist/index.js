@@ -410,12 +410,12 @@
   // src/components/mainPartnerCard.ts
   var mainPartnerCard = (partner) => {
     return `
-    <div class="logo-card">
-        <a href="${partner.link}" class="logo-card__link" aria-labelledby="logo-card-${partner.name.replace(/\s+/g, "-")}"></a>
-        <div class="logo-card__content">
-            <img src="${partner.logoUrl}" alt="${partner.name} logo" loading="lazy">
-            <h3 id="logo-card-${partner.name.replace(/\s+/g, "-")}">${partner.name}</h3>
-        </div>
+    <div class="logo-card main-partner">
+      <a href="${partner.link}" class="logo-card__link" aria-labelledby="logo-card-${partner.name}" target="_blank"></a>
+      <div class="logo-card__content">
+        <img src="${partner.logoUrl}" alt="${partner.name}" loading="lazy">
+        <h3 id="logo-card-${partner.name}">${partner.name}</h3>
+      </div>
     </div>
   `;
   };
@@ -423,10 +423,12 @@
   // src/components/applicationPartnerCard.ts
   var applicationPartnerCard = (partner) => {
     return `
-      <div class="partner-card app-partner-card">
-        <img src="${partner.logoUrl}" alt="${partner.name}" class="partner-logo" />
+    <div class="logo-card application-partner">
+      <div class="logo-card__content">
+        <img src="${partner.logoUrl}" alt="Application Partner Logo" loading="lazy">
       </div>
-    `;
+    </div>
+  `;
   };
 
   // src/index.ts
@@ -460,8 +462,8 @@
           case "application-partner-card-list":
             const appPartnerSection = element;
             const partnersApp = [
-              { name: "App Partner A", logoUrl: "path/to/app-logoA.png" },
-              { name: "App Partner B", logoUrl: "path/to/app-logoB.png" }
+              { logoUrl: "path/to/app-logoA.png" },
+              { logoUrl: "path/to/app-logoB.png" }
             ];
             partnersApp.forEach((partner) => {
               appPartnerSection.innerHTML += applicationPartnerCard(partner);
