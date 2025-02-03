@@ -15,6 +15,7 @@ import { routeDispatcher } from "./routes";
 import { initSSE } from "@sygnal/sse"; 
 import { ComponentManager } from "./engine/component-manager";
 import { TestComponent } from "./components/test";
+import { bigPartnerCard } from "./components/bigPartnerCard";
 
 interface SiteGlobalDataType {
     // Define properties and their types for SiteDataType
@@ -79,24 +80,34 @@ const exec = () => {
 
     // Components
     const components = document.querySelectorAll<HTMLElement>('[sse-component]');
-    components.forEach(element=> {
-        // Get the value of the SSE-component attribute
+    components.forEach(element => {
         const componentValue = element.getAttribute('sse-component');
-         
-        if (componentValue) {
-            // Run a switch statement based on the attribute value
+    
+        // Ensure there's an actual value before proceeding
+        if (componentValue) { 
             switch (componentValue) {
                 case 'test':
- 
                     (new TestComponent(element)).exec();
-
                     break;
+    
+                case 'big-partner-card-list': 
+                    const container = element;
+                    const partners = [
+                        { name: 'Partner A', description: 'Description for Partner A', logoUrl: 'path/to/logoA.png' },
+                        { name: 'Partner B', description: 'Description for Partner B', logoUrl: 'path/to/logoB.png' },
+                    ];
+                    partners.forEach((partner) => {
+                        container.innerHTML += bigPartnerCard(partner);
+                    });
+                    break;
+    
                 default:
                     console.log('Unknown component:', componentValue);
                     break;
             }
         }
-    });    
+    });
+    
 
 }
 
