@@ -1,8 +1,11 @@
-export const mainPartnerCard = (partner: { name: string, logoUrl: string }) => {
+export const mainPartnerCard = (partner: { name: string, logoUrl: string, link: string }) => {
   return `
-    <div class="partner-card main-partner-card">
-      <img src="${partner.logoUrl}" alt="${partner.name}" class="partner-logo" />
-      <div class="partner-name">${partner.name}</div>
+    <div class="logo-card">
+        <a href="${partner.link}" class="logo-card__link" aria-labelledby="logo-card-${partner.name.replace(/\s+/g, '-')}"></a>
+        <div class="logo-card__content">
+            <img src="${partner.logoUrl}" alt="${partner.name} logo" loading="lazy">
+            <h3 id="logo-card-${partner.name.replace(/\s+/g, '-')}">${partner.name}</h3>
+        </div>
     </div>
   `;
 };
