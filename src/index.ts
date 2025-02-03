@@ -92,15 +92,18 @@ const exec = () => {
                     break;
     
                 case 'main-partner-card-list': 
-                    const mainPartnerSection = element;
-                    const partnersMain = [
-                        { name: 'Partner A', logoUrl: 'path/to/logoA.png' },
-                        { name: 'Partner B', logoUrl: 'path/to/logoB.png' },
+                const renderMainPartners = (container: HTMLElement) => {
+                    const partners = [
+                      { name: 'Partner A', logoUrl: 'path/to/partnerA-logo.png', link: 'https://partnerA.com' },
+                      { name: 'Partner B', logoUrl: 'path/to/partnerB-logo.png', link: 'https://partnerB.com' },
+                      // Add more partners as needed
                     ];
-                    partnersMain.forEach((partner) => {
-                        mainPartnerSection.innerHTML += mainPartnerCard(partner);
+                  
+                    partners.forEach((partner) => {
+                      const cardHTML = mainPartnerCard(partner);
+                      container.innerHTML += cardHTML;
                     });
-                    break;
+                  };
     
                 case 'application-partner-card-list': 
                     const appPartnerSection = element;

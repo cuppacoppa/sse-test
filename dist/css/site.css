@@ -1,29 +1,43 @@
-.main-partner-card {
-  transition: transform 0.3s;
+.logo-card {
+  position: relative;
+  width: 100%;
+  max-width: 250px; /* Adjust based on your layout */
+  margin: 15px;
+  border: 1px solid #ddd; /* Add border if needed */
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.main-partner-card:hover {
-  transform: scale(1.05); /* Example hover effect */
+.logo-card__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  z-index: 2; /* Ensures the link is clickable */
 }
-
-.partner-logo {
-  width: 100px; /* Adjust size as needed */
-  height: auto;
-}
-
-.partner-name {
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.app-partner-card {
+.logo-card__content {
+  padding: 15px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #fff; /* White background */
 }
-
-.partner-logo {
-  width: 100px; /* Adjust size as needed */
+.logo-card__content img {
+  max-width: 100%;
   height: auto;
+  margin-bottom: 10px;
+}
+.logo-card__content h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  text-transform: capitalize;
+}
+.logo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }/*# sourceMappingURL=site.css.map */
