@@ -448,16 +448,15 @@
             new TestComponent(element).exec();
             break;
           case "main-partner-card-list":
-            const renderMainPartners = (container) => {
-              const partners = [
-                { name: "Partner A", logoUrl: "path/to/partnerA-logo.png", link: "https://partnerA.com" },
-                { name: "Partner B", logoUrl: "path/to/partnerB-logo.png", link: "https://partnerB.com" }
-              ];
-              partners.forEach((partner) => {
-                const cardHTML = mainPartnerCard(partner);
-                container.innerHTML += cardHTML;
-              });
-            };
+            const mainPartnerSection = element;
+            const partnersMain = [
+              { name: "Partner A", logoUrl: "path/to/partnerA-logo.png", link: "https://partnerA.com" },
+              { name: "Partner B", logoUrl: "path/to/partnerB-logo.png", link: "https://partnerB.com" }
+            ];
+            partnersMain.forEach((partner) => {
+              mainPartnerSection.innerHTML += mainPartnerCard(partner);
+            });
+            break;
           case "application-partner-card-list":
             const appPartnerSection = element;
             const partnersApp = [
