@@ -15,7 +15,8 @@ import { routeDispatcher } from "./routes";
 import { initSSE } from "@sygnal/sse"; 
 import { ComponentManager } from "./engine/component-manager";
 import { TestComponent } from "./components/test";
-import { bigPartnerCard } from "./components/bigPartnerCard";
+import { mainPartnerCard } from "./components/mainPartnerCard";
+import { applicationPartnerCard } from "./components/applicationPartnerCard";
 
 interface SiteGlobalDataType {
     // Define properties and their types for SiteDataType
@@ -90,14 +91,25 @@ const exec = () => {
                     (new TestComponent(element)).exec();
                     break;
     
-                case 'big-partner-card-list': 
-                    const container = element;
-                    const partners = [
-                        { name: 'Partner A', description: 'Description for Partner A', logoUrl: 'path/to/logoA.png' },
-                        { name: 'Partner B', description: 'Description for Partner B', logoUrl: 'path/to/logoB.png' },
+                case 'main-partner-card-list': 
+                    const mainPartnerSection = element;
+                    const partnersMain = [
+                        { name: 'Partner A', logoUrl: 'path/to/logoA.png' },
+                        { name: 'Partner B', logoUrl: 'path/to/logoB.png' },
                     ];
-                    partners.forEach((partner) => {
-                        container.innerHTML += bigPartnerCard(partner);
+                    partnersMain.forEach((partner) => {
+                        mainPartnerSection.innerHTML += mainPartnerCard(partner);
+                    });
+                    break;
+    
+                case 'application-partner-card-list': 
+                    const appPartnerSection = element;
+                    const partnersApp = [
+                        { name: 'App Partner A', logoUrl: 'path/to/app-logoA.png' },
+                        { name: 'App Partner B', logoUrl: 'path/to/app-logoB.png' },
+                    ];
+                    partnersApp.forEach((partner) => {
+                        appPartnerSection.innerHTML += applicationPartnerCard(partner);
                     });
                     break;
     

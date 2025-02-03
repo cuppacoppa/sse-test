@@ -407,16 +407,24 @@
     }
   };
 
-  // src/components/bigPartnerCard.ts
-  function bigPartnerCard(partner) {
+  // src/components/mainPartnerCard.ts
+  var mainPartnerCard = (partner) => {
     return `
-      <div class="partner-card">
-        <img src="${partner.logoUrl}" alt="${partner.name} logo" class="partner-card__logo" />
-        <h2 class="partner-card__name">${partner.name}</h2>
-        <p class="partner-card__description">${partner.description}</p>
+    <div class="partner-card main-partner-card">
+      <img src="${partner.logoUrl}" alt="${partner.name}" class="partner-logo" />
+      <div class="partner-name">${partner.name}</div>
+    </div>
+  `;
+  };
+
+  // src/components/applicationPartnerCard.ts
+  var applicationPartnerCard = (partner) => {
+    return `
+      <div class="partner-card app-partner-card">
+        <img src="${partner.logoUrl}" alt="${partner.name}" class="partner-logo" />
       </div>
     `;
-  }
+  };
 
   // src/index.ts
   var SITE_NAME = "Site";
@@ -436,14 +444,24 @@
           case "test":
             new TestComponent(element).exec();
             break;
-          case "big-partner-card-list":
-            const container = element;
-            const partners = [
-              { name: "Partner A", description: "Description for Partner A", logoUrl: "path/to/logoA.png" },
-              { name: "Partner B", description: "Description for Partner B", logoUrl: "path/to/logoB.png" }
+          case "main-partner-card-list":
+            const mainPartnerSection = element;
+            const partnersMain = [
+              { name: "Partner A", logoUrl: "path/to/logoA.png" },
+              { name: "Partner B", logoUrl: "path/to/logoB.png" }
             ];
-            partners.forEach((partner) => {
-              container.innerHTML += bigPartnerCard(partner);
+            partnersMain.forEach((partner) => {
+              mainPartnerSection.innerHTML += mainPartnerCard(partner);
+            });
+            break;
+          case "application-partner-card-list":
+            const appPartnerSection = element;
+            const partnersApp = [
+              { name: "App Partner A", logoUrl: "path/to/app-logoA.png" },
+              { name: "App Partner B", logoUrl: "path/to/app-logoB.png" }
+            ];
+            partnersApp.forEach((partner) => {
+              appPartnerSection.innerHTML += applicationPartnerCard(partner);
             });
             break;
           default:

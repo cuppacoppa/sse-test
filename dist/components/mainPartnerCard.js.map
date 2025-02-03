@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/components/mainPartnerCard.ts"],
+  "sourcesContent": ["export const mainPartnerCard = (partner: { name: string, logoUrl: string }) => {\r\n  return `\r\n    <div class=\"partner-card main-partner-card\">\r\n      <img src=\"${partner.logoUrl}\" alt=\"${partner.name}\" class=\"partner-logo\" />\r\n      <div class=\"partner-name\">${partner.name}</div>\r\n    </div>\r\n  `;\r\n};\r\n"],
+  "mappings": ";;;AAAO,MAAM,kBAAkB,CAAC,YAA+C;AAC7E,WAAO;AAAA;AAAA,kBAES,QAAQ,iBAAiB,QAAQ;AAAA,kCACjB,QAAQ;AAAA;AAAA;AAAA,EAG1C;",
+  "names": []
+}
