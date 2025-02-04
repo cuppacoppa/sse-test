@@ -94,8 +94,8 @@ const exec = () => {
                 case 'main-partner-card-list': 
                     const mainPartnerSection = element;  // Get the section where main partners will be rendered
                     const partnersMain = [
-                        { name: 'Partner A', logoUrl: 'path/to/partnerA-logo.png', link: 'https://partnerA.com' },
-                        { name: 'Partner B', logoUrl: 'path/to/partnerB-logo.png', link: 'https://partnerB.com' },
+                        { name: 'Partner A', logoUrl: 'https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png', link: 'https://partnerA.com' },
+                        { name: 'Partner B', logoUrl: 'https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png', link: 'https://partnerB.com' },
                     ];
                     mainPartnerSection.classList.add("partner-card-list"); // Add flex container class
                     partnersMain.forEach((partner) => {

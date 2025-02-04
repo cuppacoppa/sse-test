@@ -14,11 +14,11 @@
   align-items: center;
   text-align: center;
   background-color: #fff; /* White background */
-  z-index: -1;
 }
 .logo-card__content img {
-  max-width: 100%;
-  height: auto;
+  width: 100px; /* Set the width to 100px */
+  height: 75px; /* Set the height to 75px */
+  object-fit: contain; /* Maintains the aspect ratio and fits the image within the box */
   margin-bottom: 10px;
 }
 
@@ -36,7 +36,6 @@
   border: 1px solid #ddd; /* Add border for main partners */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer; /* Indicates that the card is clickable */
-  position: relative;
 }
 .main-partner__link {
   position: absolute;
@@ -45,7 +44,6 @@
   right: 0;
   bottom: 0;
   display: block;
-  position: absolute;
   z-index: 2; /* Ensures the link is clickable */
 }
 .main-partner__content {

@@ -17,8 +17,9 @@
   }
 
   &__content img {
-    max-width: 100%;
-    height: auto;
+    width: 100px;  /* Set the width to 100px */
+    height: 75px;  /* Set the height to 75px */
+    object-fit: contain;  /* Maintains the aspect ratio and fits the image within the box */
     margin-bottom: 10px;
   }
 }
