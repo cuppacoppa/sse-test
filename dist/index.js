@@ -369,11 +369,81 @@
     }
   };
 
+  // src/components/mainPartnerCard.ts
+  var mainPartnerCard = (partner) => {
+    return `
+    <div class="logo-card main-partner">
+      <a href="${partner.link}" class="main-partner__link" aria-labelledby="logo-card-${partner.name}" target="_blank"></a>
+      <div class="logo-card__content">
+        <img src="${partner.logoUrl}" alt="${partner.name}" loading="lazy">
+        <h3 id="logo-card-${partner.name}">${partner.name}</h3>
+      </div>
+    </div>
+  `;
+  };
+
+  // src/components/applicationPartnerCard.ts
+  var applicationPartnerCard = (partner) => {
+    return `
+    <div class="logo-card application-partner">
+      <div class="logo-card__content">
+        <img src="${partner.logoUrl}" alt="Application Partner Logo" loading="lazy">
+      </div>
+    </div>
+  `;
+  };
+
+  // src/pages/partner.ts
+  var PartnerPage = class {
+    constructor() {
+    }
+    setup() {
+    }
+    exec() {
+      console.log("partner page loaded");
+      const components = document.querySelectorAll("[sse-component]");
+      components.forEach((element) => {
+        const componentValue = element.getAttribute("sse-component");
+        if (componentValue) {
+          switch (componentValue) {
+            case "main-partner-card-list":
+              const mainPartnerSection = element;
+              const partnersMain = [
+                { name: "Partner A", logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", link: "https://partnerA.com" },
+                { name: "Partner B", logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", link: "https://partnerB.com" }
+              ];
+              mainPartnerSection.classList.add("partner-card-list");
+              partnersMain.forEach((partner) => {
+                mainPartnerSection.innerHTML += mainPartnerCard(partner);
+              });
+              break;
+            case "application-partner-card-list":
+              const appPartnerSection = element;
+              const partnersApp = [
+                { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png" },
+                { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png" }
+              ];
+              appPartnerSection.classList.add("application-partner-card-list");
+              partnersApp.forEach((partner) => {
+                appPartnerSection.innerHTML += applicationPartnerCard(partner);
+              });
+              break;
+            default:
+              console.log("Unknown component:", componentValue);
+              break;
+          }
+        }
+      });
+    }
+  };
+
   // src/routes.ts
   var routeDispatcher = () => {
     var routeDispatcher2 = new RouteDispatcher(Site);
     routeDispatcher2.routes = {
-      "/": HomePage
+      "/": HomePage,
+      "/partner/*": PartnerPage,
+      "/partner": PartnerPage
     };
     return routeDispatcher2;
   };
@@ -407,30 +477,6 @@
     }
   };
 
-  // src/components/mainPartnerCard.ts
-  var mainPartnerCard = (partner) => {
-    return `
-    <div class="logo-card main-partner">
-      <a href="${partner.link}" class="main-partner__link" aria-labelledby="logo-card-${partner.name}" target="_blank"></a>
-      <div class="logo-card__content">
-        <img src="${partner.logoUrl}" alt="${partner.name}" loading="lazy">
-        <h3 id="logo-card-${partner.name}">${partner.name}</h3>
-      </div>
-    </div>
-  `;
-  };
-
-  // src/components/applicationPartnerCard.ts
-  var applicationPartnerCard = (partner) => {
-    return `
-    <div class="logo-card application-partner">
-      <div class="logo-card__content">
-        <img src="${partner.logoUrl}" alt="Application Partner Logo" loading="lazy">
-      </div>
-    </div>
-  `;
-  };
-
   // src/index.ts
   var SITE_NAME = "Site";
   window.componentManager = new ComponentManager();
@@ -448,28 +494,6 @@
         switch (componentValue) {
           case "test":
             new TestComponent(element).exec();
-            break;
-          case "main-partner-card-list":
-            const mainPartnerSection = element;
-            const partnersMain = [
-              { name: "Partner A", logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", link: "https://partnerA.com" },
-              { name: "Partner B", logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", link: "https://partnerB.com" }
-            ];
-            mainPartnerSection.classList.add("partner-card-list");
-            partnersMain.forEach((partner) => {
-              mainPartnerSection.innerHTML += mainPartnerCard(partner);
-            });
-            break;
-          case "application-partner-card-list":
-            const appPartnerSection = element;
-            const partnersApp = [
-              { logoUrl: "path/to/app-logoA.png" },
-              { logoUrl: "path/to/app-logoB.png" }
-            ];
-            appPartnerSection.classList.add("application-partner-card-list");
-            partnersApp.forEach((partner) => {
-              appPartnerSection.innerHTML += applicationPartnerCard(partner);
-            });
             break;
           default:
             console.log("Unknown component:", componentValue);
