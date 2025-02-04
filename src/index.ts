@@ -97,7 +97,7 @@ const exec = () => {
                         { name: 'Partner A', logoUrl: 'path/to/partnerA-logo.png', link: 'https://partnerA.com' },
                         { name: 'Partner B', logoUrl: 'path/to/partnerB-logo.png', link: 'https://partnerB.com' },
                     ];
-                
+                    mainPartnerSection.classList.add("partner-card-list"); // Add flex container class
                     partnersMain.forEach((partner) => {
                         // Assuming mainPartnerCard returns HTML for each partner, add it to the container
                         mainPartnerSection.innerHTML += mainPartnerCard(partner);  
@@ -110,7 +110,7 @@ const exec = () => {
                         { logoUrl: 'path/to/app-logoA.png' },
                         { logoUrl: 'path/to/app-logoB.png' },
                     ];
-                
+                    appPartnerSection.classList.add("application-partner-card-list"); // Add flex container class
                     partnersApp.forEach((partner) => {
                         // Assuming applicationPartnerCard returns HTML for each partner, add it to the container
                         appPartnerSection.innerHTML += applicationPartnerCard(partner);

@@ -23,6 +23,15 @@
   }
 }
 
+/* Flexbox container for partner cards */
+.partner-card-list,
+.application-partner-card-list {
+  display: flex;
+  flex-wrap: wrap; /* Ensures wrapping if there are too many cards */
+  justify-content: center; /* Centers items horizontally */
+  gap: 20px; /* Space between cards */
+}
+
 /* Main Partner Card Styles */
 .main-partner {
   border: 1px solid #ddd; /* Add border for main partners */
@@ -30,7 +39,7 @@
   cursor: pointer; /* Indicates that the card is clickable */
 
   &__link {
-    position: absolute;
+    position: absolute; 
     top: 0;
     left: 0;
     right: 0;
@@ -75,5 +84,18 @@
   &:hover {
     transform: none; /* No hover effect */
     box-shadow: none; /* No box-shadow */
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .partner-card-list,
+  .application-partner-card-list {
+    justify-content: center;
+  }
+  
+  .logo-card {
+    flex: 1 1 100%; /* Makes them full width on smaller screens */
+    max-width: none;
   }
 }

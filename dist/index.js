@@ -411,7 +411,7 @@
   var mainPartnerCard = (partner) => {
     return `
     <div class="logo-card main-partner">
-      <a href="${partner.link}" class="logo-card__link" aria-labelledby="logo-card-${partner.name}" target="_blank"></a>
+      <a href="${partner.link}" class="main-partner__link" aria-labelledby="logo-card-${partner.name}" target="_blank"></a>
       <div class="logo-card__content">
         <img src="${partner.logoUrl}" alt="${partner.name}" loading="lazy">
         <h3 id="logo-card-${partner.name}">${partner.name}</h3>
@@ -455,6 +455,7 @@
               { name: "Partner A", logoUrl: "path/to/partnerA-logo.png", link: "https://partnerA.com" },
               { name: "Partner B", logoUrl: "path/to/partnerB-logo.png", link: "https://partnerB.com" }
             ];
+            mainPartnerSection.classList.add("partner-card-list");
             partnersMain.forEach((partner) => {
               mainPartnerSection.innerHTML += mainPartnerCard(partner);
             });
@@ -465,6 +466,7 @@
               { logoUrl: "path/to/app-logoA.png" },
               { logoUrl: "path/to/app-logoB.png" }
             ];
+            appPartnerSection.classList.add("application-partner-card-list");
             partnersApp.forEach((partner) => {
               appPartnerSection.innerHTML += applicationPartnerCard(partner);
             });

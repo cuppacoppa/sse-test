@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../../src/components/mainPartnerCard.ts"],
-  "sourcesContent": ["export const mainPartnerCard = (partner: { name: string, logoUrl: string, link: string }) => {\r\n  return `\r\n    <div class=\"logo-card main-partner\">\r\n      <a href=\"${partner.link}\" class=\"logo-card__link\" aria-labelledby=\"logo-card-${partner.name}\" target=\"_blank\"></a>\r\n      <div class=\"logo-card__content\">\r\n        <img src=\"${partner.logoUrl}\" alt=\"${partner.name}\" loading=\"lazy\">\r\n        <h3 id=\"logo-card-${partner.name}\">${partner.name}</h3>\r\n      </div>\r\n    </div>\r\n  `;\r\n};\r\n"],
-  "mappings": ";;;AAAO,MAAM,kBAAkB,CAAC,YAA6D;AAC3F,WAAO;AAAA;AAAA,iBAEQ,QAAQ,4DAA4D,QAAQ;AAAA;AAAA,oBAEzE,QAAQ,iBAAiB,QAAQ;AAAA,4BACzB,QAAQ,SAAS,QAAQ;AAAA;AAAA;AAAA;AAAA,EAIrD;",
+  "sourcesContent": ["export const mainPartnerCard = (partner: { name: string, logoUrl: string, link: string }) => {\r\n  return `\r\n    <div class=\"logo-card main-partner\">\r\n      <a href=\"${partner.link}\" class=\"main-partner__link\" aria-labelledby=\"logo-card-${partner.name}\" target=\"_blank\"></a>\r\n      <div class=\"logo-card__content\">\r\n        <img src=\"${partner.logoUrl}\" alt=\"${partner.name}\" loading=\"lazy\">\r\n        <h3 id=\"logo-card-${partner.name}\">${partner.name}</h3>\r\n      </div>\r\n    </div>\r\n  `;\r\n};\r\n"],
+  "mappings": ";;;AAAO,MAAM,kBAAkB,CAAC,YAA6D;AAC3F,WAAO;AAAA;AAAA,iBAEQ,QAAQ,+DAA+D,QAAQ;AAAA;AAAA,oBAE5E,QAAQ,iBAAiB,QAAQ;AAAA,4BACzB,QAAQ,SAAS,QAAQ;AAAA;AAAA;AAAA;AAAA,EAIrD;",
   "names": []
 }
