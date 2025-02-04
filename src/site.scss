@@ -16,12 +16,19 @@
     background-color: #fff; /* White background */
   }
 
+  /* Main Partner Cards */
   &__content img {
-    width: 100px;  /* Set the width to 100px */
-    height: 75px;  /* Set the height to 75px */
+    width: 100px;  /* Set the width to 100px for main partner cards */
+    height: 75px;  /* Set the height to 75px for main partner cards */
     object-fit: contain;  /* Maintains the aspect ratio and fits the image within the box */
     margin-bottom: 10px;
   }
+}
+
+/* Application Partner Card Styles */
+.application-partner .logo-card__content img {
+  width: 150px;  /* Set the width to 150px for application partner cards */
+  height: 150px;  /* Set the height to 150px for application partner cards */
 }
 
 /* Flexbox container for partner cards */
@@ -31,6 +38,9 @@
   flex-wrap: wrap; /* Ensures wrapping if there are too many cards */
   justify-content: center; /* Centers items horizontally */
   gap: 20px; /* Space between cards */
+  max-width: 115rem; /* Adjust as needed */
+  margin: 0 auto; /* Centers the container horizontally */
+  width: 95%;
 }
 
 /* Main Partner Card Styles */

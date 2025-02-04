@@ -15,8 +15,8 @@ import { routeDispatcher } from "./routes";
 import { initSSE } from "@sygnal/sse"; 
 import { ComponentManager } from "./engine/component-manager";
 import { TestComponent } from "./components/test";
-import { mainPartnerCard } from "./components/mainPartnerCard";
-import { applicationPartnerCard } from "./components/applicationPartnerCard";
+// import { mainPartnerCard } from "./components/mainPartnerCard";
+// import { applicationPartnerCard } from "./components/applicationPartnerCard";
 
 interface SiteGlobalDataType {
     // Define properties and their types for SiteDataType
