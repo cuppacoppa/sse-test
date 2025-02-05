@@ -166,4 +166,68 @@
     width: 100%;
     text-align: center;
   }
-}/*# sourceMappingURL=site.css.map */
+}
+/* Filter container */
+.filter-container {
+  position: relative;  /* Add relative positioning to the container */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Filter button */
+.filter-button {
+  background-color: var(--white);
+  color: var(--black);
+  border: 1px solid var(--black);
+  border-radius: 7.6rem;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  
+  /* Align button to the left */
+  align-self: flex-start;
+  margin-left: 0;
+}
+
+/* Hover effect for the filter button */
+.filter-button:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/* Filter dropdown */
+.filter-dropdown {
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: var(--cloud);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: absolute;  /* Position dropdown relative to the filter container */
+  top: 100%;  /* Position directly below the button */
+  left: 0;
+  width: 100%;
+  max-width: 200px;
+  margin-top: 5px;  /* Add a small gap between the button and the dropdown */
+}
+
+/* When the dropdown is visible */
+.filter-dropdown.open {
+  display: flex;
+}
+
+/* Styling for the select element */
+.filter-dropdown select {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid var(--cloud-40);
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=site.css.map */

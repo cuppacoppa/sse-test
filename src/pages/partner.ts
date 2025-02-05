@@ -4,6 +4,7 @@
 import { IModule } from "@sygnal/sse";
 import { mainPartnerCard } from "../components/mainPartnerCard";
 import { applicationPartnerCard } from "../components/applicationPartnerCard";
+import { partnerFilter } from "../components/filterPartner";
  
 export class PartnerPage implements IModule {
   constructor() {
@@ -36,7 +37,7 @@ export class PartnerPage implements IModule {
                         });
                         break;
         
-                        case 'application-partner-card-list': 
+                    case 'application-partner-card-list': 
                         const appPartnerSection = element;  // Get the section where app partners will be rendered
                         const partnersApp = [
                             { logoUrl: 'https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png' },
@@ -48,6 +49,17 @@ export class PartnerPage implements IModule {
                             appPartnerSection.innerHTML += applicationPartnerCard(partner);
                         });
                         break;
+
+                    case 'partner-filter': 
+                        const filterSection = element; // Get the section where the filter button will be rendered
+                        filterSection.classList.add("partner-filter-container"); // Add container class
+                    
+                        // Render the filter component inside the section
+                        filterSection.innerHTML = partnerFilter();
+                    
+                        break;
+                    
+
         
                     default:
                         console.log('Unknown component:', componentValue);
