@@ -5,6 +5,7 @@ import { IModule } from "@sygnal/sse";
 import { mainPartnerCard } from "../components/mainPartnerCard";
 import { applicationPartnerCard } from "../components/applicationPartnerCard";
 import { partnerFilter } from "../components/filterPartner";
+import { partnerSearch } from "../components/searchPartner";
  
 export class PartnerPage implements IModule {
   constructor() {
@@ -58,7 +59,15 @@ export class PartnerPage implements IModule {
                         filterSection.innerHTML = partnerFilter();
                     
                         break;
-                    
+                    case 'partner-search': 
+                        const searchSection = element;  // Get the section where the search bar will be rendered
+                        searchSection.classList.add("partner-search-container");  // Add container class
+
+                        // Render the search component inside the section
+                        searchSection.innerHTML = partnerSearch();
+                        
+                        break;
+
 
         
                     default:

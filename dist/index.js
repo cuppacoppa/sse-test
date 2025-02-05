@@ -422,6 +422,24 @@
     }
   });
 
+  // src/components/searchPartner.ts
+  var partnerSearch = () => {
+    return `
+      <div class="search-container">
+        <input 
+          type="text" 
+          class="search-input" 
+          placeholder="Search Partners..." 
+          id="partner-search" 
+        />
+      </div>
+    `;
+  };
+  var searchComponent = document.querySelector('[sse-component="partner-search"]');
+  if (searchComponent) {
+    searchComponent.innerHTML = partnerSearch();
+  }
+
   // src/pages/partner.ts
   var PartnerPage = class {
     constructor() {
@@ -461,6 +479,11 @@
               const filterSection = element;
               filterSection.classList.add("partner-filter-container");
               filterSection.innerHTML = partnerFilter();
+              break;
+            case "partner-search":
+              const searchSection = element;
+              searchSection.classList.add("partner-search-container");
+              searchSection.innerHTML = partnerSearch();
               break;
             default:
               console.log("Unknown component:", componentValue);
