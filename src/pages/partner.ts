@@ -2,7 +2,7 @@ import { IModule } from "@sygnal/sse";
 import { mainPartnerCard } from "../components/mainPartnerCard";
 import { applicationPartnerCard } from "../components/applicationPartnerCard";
 import { partnerFilter } from "../components/filterPartner";
-import { partnerSearch } from "../components/searchPartner";
+// import { partnerSearch } from "../components/searchPartner";
 
 interface Partner {
     logoUrl: string;
@@ -52,10 +52,10 @@ export class PartnerPage implements IModule {
                         element.innerHTML = partnerFilter();
                         break;
 
-                    case 'partner-search':
-                        element.classList.add("partner-search-container");
-                        element.innerHTML = partnerSearch();
-                        break;
+                    // case 'partner-search':
+                    //     element.classList.add("partner-search-container");
+                    //     element.innerHTML = partnerSearch();
+                    //     break;
 
                     default:
                         console.log('Unknown component:', componentValue);

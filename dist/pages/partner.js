@@ -65,24 +65,6 @@
     }
   });
 
-  // src/components/searchPartner.ts
-  var partnerSearch = () => {
-    return `
-      <div class="search-container">
-        <input 
-          type="text" 
-          class="search-input" 
-          placeholder="Search Partners..." 
-          id="partner-search" 
-        />
-      </div>
-    `;
-  };
-  var searchComponent = document.querySelector('[sse-component="partner-search"]');
-  if (searchComponent) {
-    searchComponent.innerHTML = partnerSearch();
-  }
-
   // src/pages/partner.ts
   var partnersApp = [
     { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Productivity"] },
@@ -118,10 +100,6 @@
             case "partner-filter":
               element.classList.add("partner-filter-container");
               element.innerHTML = partnerFilter();
-              break;
-            case "partner-search":
-              element.classList.add("partner-search-container");
-              element.innerHTML = partnerSearch();
               break;
             default:
               console.log("Unknown component:", componentValue);
