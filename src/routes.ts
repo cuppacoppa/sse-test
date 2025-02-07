@@ -21,15 +21,13 @@ export const routeDispatcher = (): RouteDispatcher => {
     var routeDispatcher = new RouteDispatcher(Site);
     routeDispatcher.routes = {
 
-        // Site paes
+        // Site pages
         '/': HomePage,
-        '/partner/*': IndividualPartner, 
-        '/partner': PartnerPage, 
+        '/partner/*': IndividualPartner,  // Dynamic route for individual partner
+        '/partner': PartnerPage,
 
         // TEST Pages
-
     };
 
     return routeDispatcher;
 }
-

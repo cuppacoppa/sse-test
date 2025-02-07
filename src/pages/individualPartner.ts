@@ -1,8 +1,3 @@
-
-/*
- * Page | Home
- */
-
 import { IModule } from "@sygnal/sse";
  
 

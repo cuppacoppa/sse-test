@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/pages/individualPartner.ts"],
+  "sourcesContent": ["import { IModule } from \"@sygnal/sse\";\r\n \r\n\r\nexport class IndividualPartner implements IModule {\r\n\r\n  constructor() {\r\n  }\r\n\r\n  setup() {\r\n        \r\n  }\r\n\r\n  exec() {\r\n    console.log('individual partner page')\r\n  }\r\n\r\n}\r\n"],
+  "mappings": ";;;AAGO,MAAM,oBAAN,MAA2C;AAAA,IAEhD,cAAc;AAAA,IACd;AAAA,IAEA,QAAQ;AAAA,IAER;AAAA,IAEA,OAAO;AACL,cAAQ,IAAI,yBAAyB;AAAA,IACvC;AAAA,EAEF;",
+  "names": []
+}
