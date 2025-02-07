@@ -502,12 +502,23 @@
     });
   };
 
+  // src/pages/individualPartner.ts
+  var IndividualPartner = class {
+    constructor() {
+    }
+    setup() {
+    }
+    exec() {
+      console.log("individual partner page");
+    }
+  };
+
   // src/routes.ts
   var routeDispatcher = () => {
     var routeDispatcher2 = new RouteDispatcher(Site);
     routeDispatcher2.routes = {
       "/": HomePage,
-      "/partner/*": PartnerPage,
+      "/partner/*": IndividualPartner,
       "/partner": PartnerPage
     };
     return routeDispatcher2;

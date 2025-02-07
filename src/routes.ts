@@ -14,6 +14,7 @@ import { HomePage } from "./pages/home";
 import { RouteDispatcher } from "@sygnal/sse";
 import { Site } from "./site";
 import { PartnerPage } from "./pages/partner";
+import { IndividualPartner } from "./pages/individualPartner";
 
 export const routeDispatcher = (): RouteDispatcher => {
     
@@ -22,7 +23,7 @@ export const routeDispatcher = (): RouteDispatcher => {
 
         // Site paes
         '/': HomePage,
-        '/partner/*': PartnerPage, 
+        '/partner/*': IndividualPartner, 
         '/partner': PartnerPage, 
 
         // TEST Pages
