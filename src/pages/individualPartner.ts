@@ -73,9 +73,10 @@ export class IndividualPartner implements IModule {
     // CALL THE INDIVIDUALPARTNER.TS COMPONENT HERE TO GENERATE HTML
     const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
     console.log(partnerHTML)
+    const partnerNameLowerCase =  partner.name.toLowerCase();
 
     // Redirect to partner/learn page with partnerName as a URL parameter
-    window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${formattedPartnerName}`);
+    window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${partnerNameLowerCase}`);
     
 
     // Components

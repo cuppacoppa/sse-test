@@ -581,7 +581,8 @@
       console.log(partner);
       const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
       console.log(partnerHTML);
-      window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${formattedPartnerName}`);
+      const partnerNameLowerCase = partner.name.toLowerCase();
+      window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${partnerNameLowerCase}`);
       const components = document.querySelectorAll("[sse-component]");
       components.forEach((element) => {
         const componentValue = element.getAttribute("sse-component");
