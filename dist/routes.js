@@ -581,7 +581,7 @@
       console.log(partner);
       const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
       console.log(partnerHTML);
-      if (path == "https://mats-dapper-site-d83a81.webflow.io/partner/" + formattedPartnerName) {
+      if (path == "https://mats-dapper-site-d83a81.webflow.io/partner/" + partner.name) {
         window.location.replace("https://mats-dapper-site-d83a81.webflow.io/partner/learn");
       }
       const components = document.querySelectorAll("[sse-component]");

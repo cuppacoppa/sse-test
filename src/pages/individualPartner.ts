@@ -56,6 +56,7 @@ export class IndividualPartner implements IModule {
   }
 
   exec() {
+
     const path = window.location.pathname;
     const segments = path.split("/");
     const partnerName = segments.pop() || segments.pop(); // Handles trailing slash
@@ -73,7 +74,7 @@ export class IndividualPartner implements IModule {
     const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
     console.log(partnerHTML)
     
-    if (path == "https://mats-dapper-site-d83a81.webflow.io/partner/" + formattedPartnerName) {
+    if (path == "https://mats-dapper-site-d83a81.webflow.io/partner/" + partner.name) {
       window.location.replace("https://mats-dapper-site-d83a81.webflow.io/partner/learn")
     }
     
