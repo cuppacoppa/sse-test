@@ -79,20 +79,7 @@ export class IndividualPartner implements IModule {
     window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${partnerNameLowerCase}`);
     
 
-    // Components
-    const components = document.querySelectorAll<HTMLElement>('[sse-component]');
-    components.forEach(element => {
-        const componentValue = element.getAttribute('sse-component');
-
-        if (componentValue) {
-            switch (componentValue) {
-                case 'partner-page':
-                  const partnerPageSection = element;
-                  partnerPageSection.innerHTML += individualPartnerPage(formattedPartnerName, partnersData);
-
-            }
-        }
-    })
+   
 
 
 

@@ -1,8 +1,36 @@
 "use strict";
 (() => {
   // src/components/individualPartnerPage.ts
-  var individualPartnerPage = (partnerName, partnersData2) => {
-    const partner = partnersData2[partnerName];
+  var partnersData = {
+    "partnera": {
+      name: "PartnerA",
+      logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png",
+      Header: "Page Header",
+      subHeader: "Page Sub Header",
+      description: "This is a detailed description of Partner A.",
+      largeMedia: "https://via.placeholder.com/800x400",
+      caseStudySubHeading: "How We Helped Partner A",
+      caseStudyProblem: "Partner A faced a challenge with scaling.",
+      caseStudySolution: "We provided an innovative solution to optimize their operations.",
+      caseStudyCollaboration: "Our team worked closely with Partner A to ensure seamless integration.",
+      caseStudyMedia: "https://via.placeholder.com/600x300"
+    },
+    "partnerb": {
+      name: "PartnerB",
+      logoUrl: "https://via.placeholder.com/150x150",
+      Header: "Partner B Header",
+      subHeader: "Partner B Sub Header",
+      description: "This is a detailed description of Partner B.",
+      largeMedia: "https://via.placeholder.com/800x400",
+      caseStudySubHeading: "How We Helped Partner B",
+      caseStudyProblem: "Partner B faced challenges in customer acquisition.",
+      caseStudySolution: "We helped them develop targeted marketing strategies.",
+      caseStudyCollaboration: "Our team worked on designing and implementing the strategy.",
+      caseStudyMedia: "https://via.placeholder.com/600x300"
+    }
+  };
+  var individualPartnerPage = (partnerName, partnersData3) => {
+    const partner = partnersData3[partnerName];
     if (!partner) {
       return `<p>Partner not found.</p>`;
     }
@@ -44,9 +72,30 @@
       </div>
     `;
   };
+  window.addEventListener("load", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const partnerName = urlParams.get("partner");
+    console.log("Partner Name from URL:", partnerName);
+    if (partnerName) {
+      const formattedPartnerName = partnerName.toLowerCase();
+      const partner = partnersData[formattedPartnerName];
+      console.log("Partner Object:", partner);
+      const components = document.querySelectorAll("[sse-component]");
+      components.forEach((element) => {
+        const componentValue = element.getAttribute("sse-component");
+        if (componentValue) {
+          switch (componentValue) {
+            case "partner-page":
+              const partnerPageSection = element;
+              partnerPageSection.innerHTML += individualPartnerPage(formattedPartnerName, partnersData);
+          }
+        }
+      });
+    }
+  });
 
   // src/pages/individualPartner.ts
-  var partnersData = {
+  var partnersData2 = {
     "partnera": {
       name: "PartnerA",
       logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png",
@@ -86,23 +135,12 @@
       const validPartnerName = partnerName;
       const formattedPartnerName = validPartnerName.toLowerCase();
       console.log(formattedPartnerName);
-      const partner = partnersData[formattedPartnerName];
+      const partner = partnersData2[formattedPartnerName];
       console.log(partner);
-      const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
+      const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData2);
       console.log(partnerHTML);
       const partnerNameLowerCase = partner.name.toLowerCase();
       window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${partnerNameLowerCase}`);
-      const components = document.querySelectorAll("[sse-component]");
-      components.forEach((element) => {
-        const componentValue = element.getAttribute("sse-component");
-        if (componentValue) {
-          switch (componentValue) {
-            case "partner-page":
-              const partnerPageSection = element;
-              partnerPageSection.innerHTML += individualPartnerPage(formattedPartnerName, partnersData);
-          }
-        }
-      });
     }
   };
 })();

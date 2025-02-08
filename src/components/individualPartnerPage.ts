@@ -90,3 +90,36 @@ export const individualPartnerPage = (partnerName: string, partnersData: { [key:
     `;
   };
   
+  window.addEventListener('load', () => {
+    // Retrieve the 'partner' parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const partnerName = urlParams.get('partner'); // Access the 'partner' query parameter
+  
+    console.log('Partner Name from URL:', partnerName); // Debugging: Check if we got the correct partner name
+  
+    if (partnerName) {
+      const formattedPartnerName = partnerName.toLowerCase(); // Normalize the partner name
+  
+      // Ensure the partner exists in the partnersData object
+      const partner = partnersData[formattedPartnerName];
+  
+      console.log('Partner Object:', partner);
+
+       // Components
+    const components = document.querySelectorAll<HTMLElement>('[sse-component]');
+    components.forEach(element => {
+        const componentValue = element.getAttribute('sse-component');
+
+        if (componentValue) {
+            switch (componentValue) {
+                case 'partner-page':
+                  const partnerPageSection = element;
+                  partnerPageSection.innerHTML += individualPartnerPage(formattedPartnerName, partnersData);
+
+            }
+        }
+    })
+    }
+
+    
+  })
