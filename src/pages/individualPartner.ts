@@ -73,10 +73,33 @@ export class IndividualPartner implements IModule {
     const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
     console.log(partnerHTML)
     
-    // Inject the generated HTML into a container on the page (assuming you have a div with id 'partner-page')
-    const partnerPageContainer = document.getElementById('partner-page');
-    if (partnerPageContainer) {
-      partnerPageContainer.innerHTML = partnerHTML;
+    if (path == "https://mats-dapper-site-d83a81.webflow.io/partner/" + formattedPartnerName) {
+      window.location.replace("https://mats-dapper-site-d83a81.webflow.io/partner/learn")
     }
-}
+    
+
+    // Components
+    const components = document.querySelectorAll<HTMLElement>('[sse-component]');
+    components.forEach(element => {
+        const componentValue = element.getAttribute('sse-component');
+
+        if (componentValue) {
+            switch (componentValue) {
+                case 'partner-page':
+                  const partnerPageSection = element;
+                  partnerPageSection.innerHTML += individualPartnerPage(formattedPartnerName, partnersData);
+
+            }
+        }
+    })
+
+
+
+
+
+
+
+
+
+  }
 }

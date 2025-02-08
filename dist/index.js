@@ -592,10 +592,20 @@
       console.log(partner);
       const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
       console.log(partnerHTML);
-      const partnerPageContainer = document.getElementById("partner-page");
-      if (partnerPageContainer) {
-        partnerPageContainer.innerHTML = partnerHTML;
+      if (path == "https://mats-dapper-site-d83a81.webflow.io/partner/" + formattedPartnerName) {
+        window.location.replace("https://mats-dapper-site-d83a81.webflow.io/partner/learn");
       }
+      const components = document.querySelectorAll("[sse-component]");
+      components.forEach((element) => {
+        const componentValue = element.getAttribute("sse-component");
+        if (componentValue) {
+          switch (componentValue) {
+            case "partner-page":
+              const partnerPageSection = element;
+              partnerPageSection.innerHTML += individualPartnerPage(formattedPartnerName, partnersData);
+          }
+        }
+      });
     }
   };
 
