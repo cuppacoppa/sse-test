@@ -592,9 +592,7 @@
       console.log(partner);
       const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
       console.log(partnerHTML);
-      if (path == "https://mats-dapper-site-d83a81.webflow.io/partner/" + partner.name) {
-        window.location.replace("https://mats-dapper-site-d83a81.webflow.io/partner/learn");
-      }
+      window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${formattedPartnerName}`);
       const components = document.querySelectorAll("[sse-component]");
       components.forEach((element) => {
         const componentValue = element.getAttribute("sse-component");

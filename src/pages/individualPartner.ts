@@ -73,10 +73,9 @@ export class IndividualPartner implements IModule {
     // CALL THE INDIVIDUALPARTNER.TS COMPONENT HERE TO GENERATE HTML
     const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
     console.log(partnerHTML)
-    
-    if (path == "https://mats-dapper-site-d83a81.webflow.io/partner/" + partner.name) {
-      window.location.replace("https://mats-dapper-site-d83a81.webflow.io/partner/learn")
-    }
+
+    // Redirect to partner/learn page with partnerName as a URL parameter
+    window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${formattedPartnerName}`);
     
 
     // Components
