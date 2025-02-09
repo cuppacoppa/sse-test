@@ -554,18 +554,42 @@
   
 
   
-          <!-- Case Study Section -->
           <div class="partner-case-study">
+            <!-- Tab Section (Navigation for the case study) -->
+            <div class="case-study-tabs">
+              <button class="tab-button active" data-tab="1">Tab 1</button>
+              <button class="tab-button" data-tab="2">Tab 2</button>
+              <button class="tab-button" data-tab="3">Tab 3</button>
+            </div>
+
+            <!-- Case Study Content -->
+            <div class="case-study-content">
               <div class="case-study-left">
-                  <h3>${partner.caseStudySubHeading}</h3>
-                  <p><strong>Problem:</strong> ${partner.caseStudyProblem}</p>
-                  <p><strong>Solution:</strong> ${partner.caseStudySolution}</p>
+                <!-- Media (Image) Section -->
+                <img src="${partner.caseStudyMedia}" alt="Case Study Media" class="case-study-media">
               </div>
               <div class="case-study-right">
-                  <img src="${partner.caseStudyMedia}" alt="Case Study Media">
-                  <p><strong>Collaboration:</strong> ${partner.caseStudyCollaboration}</p>
+                <h3 class="case-study-subheading">${partner.caseStudySubHeading}</h3>
+
+                <!-- Case Study Text Sections -->
+                <div class="case-study-section">
+                  <p class="case-study-title">Problem</p>
+                  <p class="case-study-text">${partner.caseStudyProblem}</p>
+                </div>
+
+                <div class="case-study-section">
+                  <p class="case-study-title">Solution</p>
+                  <p class="case-study-text">${partner.caseStudySolution}</p>
+                </div>
+
+                <div class="case-study-section">
+                  <p class="case-study-title">Collaboration</p>
+                  <p class="case-study-text">${partner.caseStudyCollaboration}</p>
+                </div>
               </div>
+            </div>
           </div>
+
       </div>
     `;
   };
