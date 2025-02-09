@@ -313,7 +313,6 @@
   align-items: center; /* Vertically center the items */
   gap: 20px; /* Optional: add space between filter and search */
 }
-
 .partner-container {
   display: flex;
   flex-direction: column;
@@ -381,5 +380,80 @@
     width: 100%;
     height: 100%;
     object-fit: contain; // Ensures the whole image is visible
+  }
+}
+
+// Mobile Responsiveness (<= 768px)
+@media (max-width: 768px) {
+  .partner-container {
+    padding: 5vh 5vw; // Less padding for mobile
+  }
+
+  .partner-header {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+
+    .partner-text {
+      .partner-subheading {
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .partner-logo {
+      max-width: 150px;
+    }
+  }
+
+  .partner-main-content {
+    margin-top: 2rem;
+
+    .partner-description {
+      font-size: 1rem;
+    }
+  }
+
+  .partner-fullscreen-media {
+    height: 60vh; // Less height for mobile and tablets
+  }
+}
+
+// Mobile Adjustments (<= 480px)
+@media (max-width: 480px) {
+  .partner-container {
+    padding: 5vh 3vw; // Further reduce padding for small screens
+  }
+
+  .partner-header {
+    .partner-text {
+      .partner-subheading {
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .partner-logo {
+      max-width: 120px; // Smaller logo on very small screens
+    }
+  }
+
+  .partner-main-content {
+    margin-top: 1.5rem;
+
+    .partner-description {
+      font-size: 0.9rem;
+    }
+  }
+
+  .partner-fullscreen-media {
+    height: 50vh; // Further adjust height for small screens
   }
 }
