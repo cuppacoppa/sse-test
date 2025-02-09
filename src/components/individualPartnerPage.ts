@@ -38,10 +38,13 @@ export const individualPartnerPage = (partnerName: string, partnersData: { [key:
           <div class="partner-case-study">
             <!-- Tab Section (Navigation for the case study) -->
             <div class="case-study-tabs">
-              <button class="tab-button active" data-tab="1">Tab 1</button>
-              <button class="tab-button" data-tab="2">Tab 2</button>
-              <button class="tab-button" data-tab="3">Tab 3</button>
+              <!-- Tabs will be dynamically inserted here -->
             </div>
+
+          <div class="case-study-content">
+            <!-- Content will be dynamically inserted here -->
+          </div>
+
 
             <!-- Case Study Content -->
             <div class="case-study-content">
@@ -106,5 +109,54 @@ export const individualPartnerPage = (partnerName: string, partnersData: { [key:
     })
     }
 
+
+
+
+
+    if (partnerName) {
+      const formattedPartnerName = partnerName.toLowerCase(); // Normalize the partner name
+  
+      // Ensure the partner exists in the partnersData object
+      const partner = partnersData[formattedPartnerName];
     
-  })
+      const caseStudyTabsContainer = document.querySelector('.case-study-tabs') as HTMLElement;
+      const caseStudyContentContainer = document.querySelector('.case-study-content') as HTMLElement;
+
+      // Generate tabs dynamically based on `caseStudyNumber` and `caseStudyTabNames`
+      partner.caseStudyNumber && partner.caseStudyTabNames.forEach((tabName, index) => {
+        const tabButton = document.createElement('button');
+        tabButton.classList.add('tab-button');
+        tabButton.dataset.tab = String(index + 1);
+        tabButton.innerHTML = tabName;
+        caseStudyTabsContainer.appendChild(tabButton);
+
+        tabButton.addEventListener('click', () => {
+          // Remove 'active' class from all tabs and add it to the clicked tab
+          document.querySelectorAll('.tab-button').forEach((btn) => btn.classList.remove('active'));
+          tabButton.classList.add('active');
+          
+          // Update content based on selected tab
+          updateTabContent(index);
+        });
+      });
+
+      // Function to update the content displayed based on selected tab
+      function updateTabContent(tabIndex: number) {
+        const content = [
+          partner.caseStudyProblem,
+          partner.caseStudySolution,
+          partner.caseStudyCollaboration,
+        ];
+
+        caseStudyContentContainer.innerHTML = `
+          <h2>${partner.caseStudySubHeading}</h2>
+          <p><strong>Problem:</strong> ${content[tabIndex]}</p>
+        `;
+      }
+
+      // Set default content for the first tab
+      updateTabContent(0);
+  }
+})
+
+  

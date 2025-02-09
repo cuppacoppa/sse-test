@@ -9,24 +9,13 @@
       subHeader: "Page Sub Header",
       description: "The red glow of tail lights indicating another long drive home from work after an even longer 24-hour shift at the hospital. The shift hadnt been horrible but the constant stream of patients entering the ER meant there was no downtime. She had some of the \u201Cregulars\u201D in tonight with new ailments they were sure were going to kill them. It\u2019s amazing what a couple of Tylenol and a physical exam from the doctor did to eliminate their pain, nausea, headache, or whatever other mild symptoms they had. Sometimes she wondered if all they really needed was some interaction with others and a bit of the individual attention they received from the nurses. ",
       largeMedia: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png",
+      caseStudyNumber: 3,
+      caseStudyTabNames: ["tab 1", "tab 2", "tab 3"],
       caseStudySubHeading: "How We Helped Partner A",
       caseStudyProblem: "Partner A faced a challenge with scaling.",
       caseStudySolution: "We provided an innovative solution to optimize their operations.",
       caseStudyCollaboration: "Our team worked closely with Partner A to ensure seamless integration.",
       caseStudyMedia: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png"
-    },
-    "partnerb": {
-      name: "PartnerB",
-      logoUrl: "https://via.placeholder.com/150x150",
-      Header: "Partner B Header",
-      subHeader: "Partner B Sub Header",
-      description: "This is a detailed description of Partner B.",
-      largeMedia: "https://via.placeholder.com/800x400",
-      caseStudySubHeading: "How We Helped Partner B",
-      caseStudyProblem: "Partner B faced challenges in customer acquisition.",
-      caseStudySolution: "We helped them develop targeted marketing strategies.",
-      caseStudyCollaboration: "Our team worked on designing and implementing the strategy.",
-      caseStudyMedia: "https://via.placeholder.com/600x300"
     }
   };
 
@@ -66,10 +55,13 @@
           <div class="partner-case-study">
             <!-- Tab Section (Navigation for the case study) -->
             <div class="case-study-tabs">
-              <button class="tab-button active" data-tab="1">Tab 1</button>
-              <button class="tab-button" data-tab="2">Tab 2</button>
-              <button class="tab-button" data-tab="3">Tab 3</button>
+              <!-- Tabs will be dynamically inserted here -->
             </div>
+
+          <div class="case-study-content">
+            <!-- Content will be dynamically inserted here -->
+          </div>
+
 
             <!-- Case Study Content -->
             <div class="case-study-content">
@@ -121,6 +113,37 @@
           }
         }
       });
+    }
+    if (partnerName) {
+      let updateTabContent2 = function(tabIndex) {
+        const content = [
+          partner.caseStudyProblem,
+          partner.caseStudySolution,
+          partner.caseStudyCollaboration
+        ];
+        caseStudyContentContainer.innerHTML = `
+          <h2>${partner.caseStudySubHeading}</h2>
+          <p><strong>Problem:</strong> ${content[tabIndex]}</p>
+        `;
+      };
+      var updateTabContent = updateTabContent2;
+      const formattedPartnerName = partnerName.toLowerCase();
+      const partner = partnersData[formattedPartnerName];
+      const caseStudyTabsContainer = document.querySelector(".case-study-tabs");
+      const caseStudyContentContainer = document.querySelector(".case-study-content");
+      partner.caseStudyNumber && partner.caseStudyTabNames.forEach((tabName, index) => {
+        const tabButton = document.createElement("button");
+        tabButton.classList.add("tab-button");
+        tabButton.dataset.tab = String(index + 1);
+        tabButton.innerHTML = tabName;
+        caseStudyTabsContainer.appendChild(tabButton);
+        tabButton.addEventListener("click", () => {
+          document.querySelectorAll(".tab-button").forEach((btn) => btn.classList.remove("active"));
+          tabButton.classList.add("active");
+          updateTabContent2(index);
+        });
+      });
+      updateTabContent2(0);
     }
   });
 })();
