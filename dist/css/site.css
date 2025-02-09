@@ -405,6 +405,7 @@
 .partner-case-study {
   padding: 5vh 10vw;
   box-sizing: border-box;
+  /* Hidden state for fade out */
 }
 .partner-case-study .case-study-tabs {
   display: flex;
@@ -439,9 +440,14 @@
   height: 2px; /* Underline height */
   background-color: #222; /* Active tab underline color */
 }
+.partner-case-study .case-study-content.hidden {
+  opacity: 0;
+}
 .partner-case-study .case-study-content {
   display: flex;
   gap: 3rem;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out; /* Smooth fade transition */
 }
 .partner-case-study .case-study-content .case-study-left {
   flex: 1;
@@ -480,6 +486,8 @@
   }
   .partner-case-study .case-study-content {
     flex-direction: column;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; /* Smooth fade transition */
   }
   .partner-case-study .case-study-content .case-study-left, .partner-case-study .case-study-content .case-study-right {
     flex: none;

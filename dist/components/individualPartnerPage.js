@@ -102,29 +102,33 @@
           }
         ];
         const currentContent = content[tabIndex];
-        caseStudyContentContainer.innerHTML = `
-        <div class="case-study-left">
-          <img src="${partner.caseStudyMedia}" alt="Case Study Media" class="case-study-media">
-        </div>
-        <div class="case-study-right">
-          <h3 class="case-study-subheading">${currentContent.subheading}</h3>
-
-          <div class="case-study-section">
-            <p class="case-study-title">Problem</p>
-            <p class="case-study-text">${currentContent.problem}</p>
+        caseStudyContentContainer.classList.add("hidden");
+        setTimeout(() => {
+          caseStudyContentContainer.innerHTML = `
+          <div class="case-study-left">
+            <img src="${partner.caseStudyMedia}" alt="Case Study Media" class="case-study-media">
           </div>
-
-          <div class="case-study-section">
-            <p class="case-study-title">Solution</p>
-            <p class="case-study-text">${currentContent.solution}</p>
+          <div class="case-study-right">
+            <h3 class="case-study-subheading">${currentContent.subheading}</h3>
+    
+            <div class="case-study-section">
+              <p class="case-study-title">Problem</p>
+              <p class="case-study-text">${currentContent.problem}</p>
+            </div>
+    
+            <div class="case-study-section">
+              <p class="case-study-title">Solution</p>
+              <p class="case-study-text">${currentContent.solution}</p>
+            </div>
+    
+            <div class="case-study-section">
+              <p class="case-study-title">Collaboration</p>
+              <p class="case-study-text">${currentContent.collaboration}</p>
+            </div>
           </div>
-
-          <div class="case-study-section">
-            <p class="case-study-title">Collaboration</p>
-            <p class="case-study-text">${currentContent.collaboration}</p>
-          </div>
-        </div>
-      `;
+        `;
+          caseStudyContentContainer.classList.remove("hidden");
+        }, 300);
       };
       var updateTabContent = updateTabContent2;
       const formattedPartnerName = partnerName.toLowerCase();

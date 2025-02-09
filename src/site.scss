@@ -499,11 +499,16 @@
     }
   }
   
-  
+  /* Hidden state for fade out */
+.case-study-content.hidden {
+  opacity: 0;
+}
 
   .case-study-content {
     display: flex;
     gap: 3rem;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; /* Smooth fade transition */
 
     .case-study-left {
       flex: 1;
@@ -551,6 +556,8 @@
 
     .case-study-content {
       flex-direction: column;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out; /* Smooth fade transition */
 
       .case-study-left, .case-study-right {
         flex: none;
