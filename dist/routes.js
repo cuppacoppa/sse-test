@@ -562,23 +562,6 @@
           <img src="${partner.caseStudyMedia}" alt="Case Study Media" class="case-study-media">
         </div>
         <div class="case-study-right">
-          <h3 class="case-study-subheading">${partner.caseStudySubHeading1}</h3>
-
-          <!-- Case Study Text Sections -->
-          <div class="case-study-section">
-            <p class="case-study-title">Problem</p>
-            <p class="case-study-text">${partner.caseStudyProblem1}</p>
-          </div>
-
-          <div class="case-study-section">
-            <p class="case-study-title">Solution</p>
-            <p class="case-study-text">${partner.caseStudySolution1}</p>
-          </div>
-
-          <div class="case-study-section">
-            <p class="case-study-title">Collaboration</p>
-            <p class="case-study-text">${partner.caseStudyCollaboration1}</p>
-          </div>
         </div>
       </div>
     </div>
