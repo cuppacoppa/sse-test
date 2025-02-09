@@ -313,3 +313,73 @@
   align-items: center; /* Vertically center the items */
   gap: 20px; /* Optional: add space between filter and search */
 }
+
+.partner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 5vh 10vw;
+  box-sizing: border-box;
+
+  .partner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    .partner-text {
+      flex: 1;
+
+      .partner-subheading {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #666;
+        margin-bottom: 0.5rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #222;
+        line-height: 1.2;
+      }
+    }
+
+    .partner-logo {
+      flex: 0.5;
+      max-width: 200px; // Adjust based on preference
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .partner-main-content {
+    margin-top: 3rem;
+
+    .partner-description {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #444;
+    }
+  }
+}
+
+// Full-Screen Media Section
+.partner-fullscreen-media {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; // Ensures the whole image is visible
+  }
+}

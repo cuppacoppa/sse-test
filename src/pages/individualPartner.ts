@@ -21,7 +21,7 @@ export const partnersData: { [key: string]: PartnerData } = {
     logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png",
     Header: "Page Header",
     subHeader: "Page Sub Header",
-    description: "This is a detailed description of Partner A.",
+    description: "The red glow of tail lights indicating another long drive home from work after an even longer 24-hour shift at the hospital. The shift hadnt been horrible but the constant stream of patients entering the ER meant there was no downtime. She had some of the “regulars” in tonight with new ailments they were sure were going to kill them. It’s amazing what a couple of Tylenol and a physical exam from the doctor did to eliminate their pain, nausea, headache, or whatever other mild symptoms they had. Sometimes she wondered if all they really needed was some interaction with others and a bit of the individual attention they received from the nurses.",
     largeMedia: "https://via.placeholder.com/800x400",
     caseStudySubHeading: "How We Helped Partner A",
     caseStudyProblem: "Partner A faced a challenge with scaling.",
@@ -77,17 +77,6 @@ export class IndividualPartner implements IModule {
 
     // Redirect to partner/learn page with partnerName as a URL parameter
     window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${partnerNameLowerCase}`);
-    
-
-   
-
-
-
-
-
-
-
-
 
   }
 }

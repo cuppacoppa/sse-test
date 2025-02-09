@@ -1,19 +1,19 @@
 "use strict";
 (() => {
-  // src/components/individualPartnerPage.ts
+  // src/data/partnerData.ts
   var partnersData = {
     "partnera": {
       name: "PartnerA",
       logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png",
       Header: "Page Header",
       subHeader: "Page Sub Header",
-      description: "This is a detailed description of Partner A.",
-      largeMedia: "https://via.placeholder.com/800x400",
+      description: "The red glow of tail lights indicating another long drive home from work after an even longer 24-hour shift at the hospital. The shift hadnt been horrible but the constant stream of patients entering the ER meant there was no downtime. She had some of the \u201Cregulars\u201D in tonight with new ailments they were sure were going to kill them. It\u2019s amazing what a couple of Tylenol and a physical exam from the doctor did to eliminate their pain, nausea, headache, or whatever other mild symptoms they had. Sometimes she wondered if all they really needed was some interaction with others and a bit of the individual attention they received from the nurses. ",
+      largeMedia: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png",
       caseStudySubHeading: "How We Helped Partner A",
       caseStudyProblem: "Partner A faced a challenge with scaling.",
       caseStudySolution: "We provided an innovative solution to optimize their operations.",
       caseStudyCollaboration: "Our team worked closely with Partner A to ensure seamless integration.",
-      caseStudyMedia: "https://via.placeholder.com/600x300"
+      caseStudyMedia: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png"
     },
     "partnerb": {
       name: "PartnerB",
@@ -29,33 +29,39 @@
       caseStudyMedia: "https://via.placeholder.com/600x300"
     }
   };
+
+  // src/components/individualPartnerPage.ts
   var individualPartnerPage = (partnerName, partnersData2) => {
     const partner = partnersData2[partnerName];
     if (!partner) {
       return `<p>Partner not found.</p>`;
     }
     return `
-      <div class="partner-container">
-          <!-- Partnership Subheading and Logo -->
-          <div class="partner-header">
+          <div class="partner-container">
+            <!-- Partnership Subheading and Logo -->
+            <div class="partner-header">
+              <div class="partner-text">
+                <p class="partner-subheading">${partner.subHeader}</p>
+                <h1 class="partner-header">${partner.Header}</h1>
+              </div>
               <div class="partner-logo">
-                  <img src="${partner.logoUrl}" alt="Partner Logo">
+                <img src="${partner.logoUrl}" alt="${partner.name} Logo">
               </div>
-              <div class="partner-subheading">
-                  <h2>${partner.Header}</h2>
-              </div>
+            </div>
+
+            <!-- Main Content Section (Description) -->
+            <div class="partner-main-content">
+              <p class="partner-description">${partner.description}</p>
+            </div>
           </div>
+            
+            <!-- Full-Screen Media Section -->
+            <div class="partner-fullscreen-media">
+              <img src="${partner.largeMedia}" alt="${partner.name} Feature Image">
+            </div>
+
   
-          <!-- Main Content Section (Header and Description) -->
-          <div class="partner-main-content">
-              <h1>${partner.Header}</h1>
-              <p>${partner.description}</p>
-          </div>
-  
-          <!-- Large Media Section -->
-          <div class="partner-large-media">
-              <img src="${partner.largeMedia}" alt="Large Media" />
-          </div>
+
   
           <!-- Case Study Section -->
           <div class="partner-case-study">
