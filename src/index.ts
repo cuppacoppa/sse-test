@@ -84,24 +84,23 @@ const exec = () => {
 
     // Components
     const components = document.querySelectorAll<HTMLElement>('[sse-component]');
-    components.forEach(element=> {
-        // Get the value of the SSE-component attribute
+    components.forEach(element => {
         const componentValue = element.getAttribute('sse-component');
-         
-        if (componentValue) {
-            // Run a switch statement based on the attribute value
+    
+        // Ensure there's an actual value before proceeding
+        if (componentValue) { 
             switch (componentValue) {
                 case 'test':
- 
                     (new TestComponent(element)).exec();
-
                     break;
+    
                 default:
                     console.log('Unknown component:', componentValue);
                     break;
             }
         }
-    });    
+    });
+    
 
 }
 

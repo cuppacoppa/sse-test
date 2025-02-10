@@ -369,7 +369,87 @@
     }
   };
 
+<<<<<<< HEAD
   // src/pages/partner.ts
+=======
+  // src/components/mainPartnerCard.ts
+  var mainPartnerCard = (partner) => {
+    return `
+    <div class="logo-card main-partner">
+    ${partner.link ? `<a href="${partner.link}" class="main-partner__link" aria-labelledby="logo-card-${partner.name}" target="_blank"></a>` : ""}
+      <div class="logo-card__content">
+        <img src="${partner.logoUrl}" alt="${partner.name}" loading="lazy">
+        <h3 id="logo-card-${partner.name}">${partner.name}</h3>
+        
+        ${partner.link ? `<div class="main-partner__icon">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.67678 0L6.54547 1.13131L12.5253 7.11111L0.404053 7.11111L0.404053 8.72727H12.5253L6.54547 14.8687L7.67678 16L15.596 7.91919L7.67678 0Z" fill="currentColor"></path>
+              </svg>
+            </div>` : ""}
+      </div>
+    </div>
+  `;
+  };
+
+  // src/components/applicationPartnerCard.ts
+  var applicationPartnerCard = (partner) => {
+    return `
+    <div class="logo-card application-partner">
+      <div class="logo-card__content">
+        <img src="${partner.logoUrl}" alt="Application Partner Logo" loading="lazy">
+      </div>
+    </div>
+  `;
+  };
+
+  // src/components/filterPartner.ts
+  var partnerFilter = () => {
+    const uniqueTags = /* @__PURE__ */ new Set();
+    partnersApp.forEach((partner) => {
+      partner.tags.forEach((tag) => uniqueTags.add(tag));
+    });
+    const tagOptions = Array.from(uniqueTags).map((tag) => `<option value="${tag}">${tag}</option>`).join("");
+    return `
+      <div class="filter-container">
+        <button class="filter-button">Filter</button>
+        <div class="filter-dropdown">
+          <label for="partner-type">Filter by Tag</label>
+          <select id="partner-type">
+            <option value="">All Partners</option>
+            ${tagOptions} 
+          </select>
+        </div>
+      </div>
+    `;
+  };
+  window.addEventListener("load", () => {
+    const filterComponent = document.querySelector('[sse-component="partner-filter"]');
+    if (filterComponent) {
+      filterComponent.innerHTML = partnerFilter();
+      const button = filterComponent.querySelector(".filter-button");
+      const dropdown = filterComponent.querySelector(".filter-dropdown");
+      const select = filterComponent.querySelector("#partner-type");
+      button.addEventListener("click", () => {
+        dropdown.classList.toggle("open");
+      });
+      select.addEventListener("change", () => {
+        const selectedTag = select.value;
+        if (typeof window.filterPartnersByTag === "function") {
+          window.filterPartnersByTag(selectedTag);
+        } else {
+          console.error("filterPartnersByTag is not defined");
+        }
+      });
+    }
+  });
+
+  // src/pages/partner.ts
+  var partnersApp = [
+    { logoUrl: "https://cdn.prod.website-files.com/679e860587d809fd4d2d7b55/67aa34cea35c6f2a2eda70bb_Oracle_Logo.svg.png", tags: ["Productivity"] },
+    { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Communication"] },
+    { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Productivity", "Security"] }
+  ];
+>>>>>>> dev
   var PartnerPage = class {
     constructor() {
     }
@@ -377,6 +457,239 @@
     }
     exec() {
       console.log("partner page loaded");
+<<<<<<< HEAD
+=======
+      const components = document.querySelectorAll("[sse-component]");
+      components.forEach((element) => {
+        const componentValue = element.getAttribute("sse-component");
+        if (componentValue) {
+          switch (componentValue) {
+            case "main-partner-card-list":
+              const mainPartnerSection = element;
+              const partnersMain = [
+                { name: "Boeing", logoUrl: "https://cdn.prod.website-files.com/679e860587d809fd4d2d7b55/67aa3479c6a80a7987c26917_Boeing_full_logo.svg.png", link: "https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=partnera" },
+                { name: "Partner B", logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png" }
+              ];
+              mainPartnerSection.classList.add("partner-card-list");
+              partnersMain.forEach((partner) => {
+                mainPartnerSection.innerHTML += mainPartnerCard(partner);
+              });
+              break;
+            case "application-partner-card-list":
+              renderApplicationPartners(element);
+              break;
+            case "partner-filter":
+              element.classList.add("partner-filter-container");
+              element.innerHTML = partnerFilter();
+              break;
+            default:
+              console.log("Unknown component:", componentValue);
+              break;
+          }
+        }
+      });
+    }
+  };
+  var filterPartnersByTag = (selectedTag) => {
+    const appPartnerSection = document.querySelector(".application-partner-card-list");
+    if (!appPartnerSection)
+      return;
+    appPartnerSection.innerHTML = "";
+    const filteredPartners = selectedTag ? partnersApp.filter((partner) => partner.tags.includes(selectedTag)) : partnersApp;
+    filteredPartners.forEach((partner) => {
+      appPartnerSection.innerHTML += applicationPartnerCard(partner);
+    });
+  };
+  window.filterPartnersByTag = filterPartnersByTag;
+  var renderApplicationPartners = (container) => {
+    container.classList.add("application-partner-card-list");
+    partnersApp.forEach((partner) => {
+      container.innerHTML += applicationPartnerCard(partner);
+    });
+  };
+
+  // src/data/partnerData.ts
+  var partnersData = {
+    "partnera": {
+      name: "PartnerA",
+      logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png",
+      Header: "Page Header",
+      subHeader: "Page Sub Header",
+      description: "The red glow of tail lights indicating another long drive home from work after an even longer 24-hour shift at the hospital. The shift hadnt been horrible but the constant stream of patients entering the ER meant there was no downtime. She had some of the \u201Cregulars\u201D in tonight with new ailments they were sure were going to kill them. It\u2019s amazing what a couple of Tylenol and a physical exam from the doctor did to eliminate their pain, nausea, headache, or whatever other mild symptoms they had. Sometimes she wondered if all they really needed was some interaction with others and a bit of the individual attention they received from the nurses. ",
+      largeMedia: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png",
+      caseStudyNumber: 3,
+      caseStudyTabNames: ["tab 1", "tab 2", "tab 3"],
+      caseStudyMedia: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png",
+      caseStudySubHeading1: "How We Helped Partner A 111111111",
+      caseStudyProblem1: "Partner A faced a challenge with scaling 1111111.",
+      caseStudySolution1: "We provided an innovative solution to optimize their operations 11111111.",
+      caseStudyCollaboration1: "Our team worked closely with Partner A to ensure seamless integration 111111111.",
+      caseStudySubHeading2: "How We Helped Partner A 2222222",
+      caseStudyProblem2: "Partner A faced a challenge with scaling 2222222.",
+      caseStudySolution2: "We provided an innovative solution to optimize their operations 2222222.",
+      caseStudyCollaboration2: "Our team worked closely with Partner A to ensure seamless integration 222222.",
+      caseStudySubHeading3: "How We Helped Partner A 33333333",
+      caseStudyProblem3: "Partner A faced a challenge with scaling 333333.",
+      caseStudySolution3: "We provided an innovative solution to optimize their operations 333333.",
+      caseStudyCollaboration3: "Our team worked closely with Partner A to ensure seamless integration 333333."
+    }
+  };
+
+  // src/components/individualPartnerPage.ts
+  var individualPartnerPage = (partnerName, partnersData2) => {
+    const partner = partnersData2[partnerName];
+    if (!partner) {
+      return `<p>Partner not found.</p>`;
+    }
+    return `
+    <div class="partner-container">
+      <!-- Partnership Subheading and Logo -->
+      <div class="partner-header">
+        <div class="partner-text">
+          <p class="partner-subheading">${partner.subHeader}</p>
+          <h1 class="partner-header">${partner.Header}</h1>
+        </div>
+        <div class="partner-logo">
+          <img src="${partner.logoUrl}" alt="${partner.name} Logo">
+        </div>
+      </div>
+
+      <!-- Main Content Section (Description) -->
+      <div class="partner-main-content">
+        <p class="partner-description">${partner.description}</p>
+      </div>
+    </div>
+    
+    <!-- Full-Screen Media Section -->
+    <div class="partner-fullscreen-media">
+      <img src="${partner.largeMedia}" alt="${partner.name} Feature Image">
+    </div>
+
+    <!-- Case Study Section -->
+    <div class="partner-case-study">
+      <!-- Tab Section (Navigation for the case study) -->
+      <div class="case-study-tabs">
+        <!-- Tabs will be dynamically inserted here -->
+      </div>
+
+      <!-- Case Study Content -->
+      <div class="case-study-content">
+        <div class="case-study-left">
+          <!-- Media (Image) Section -->
+          <img src="${partner.caseStudyMedia}" alt="Case Study Media" class="case-study-media">
+        </div>
+        <div class="case-study-right">
+        </div>
+      </div>
+    </div>
+  `;
+  };
+  window.addEventListener("load", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const partnerName = urlParams.get("partner");
+    if (partnerName) {
+      let updateTabContent2 = function(tabIndex) {
+        const content = [
+          {
+            subheading: partner.caseStudySubHeading1,
+            problem: partner.caseStudyProblem1,
+            solution: partner.caseStudySolution1,
+            collaboration: partner.caseStudyCollaboration1
+          },
+          {
+            subheading: partner.caseStudySubHeading2,
+            problem: partner.caseStudyProblem2,
+            solution: partner.caseStudySolution2,
+            collaboration: partner.caseStudyCollaboration2
+          },
+          {
+            subheading: partner.caseStudySubHeading3,
+            problem: partner.caseStudyProblem3,
+            solution: partner.caseStudySolution3,
+            collaboration: partner.caseStudyCollaboration3
+          }
+        ];
+        const currentContent = content[tabIndex];
+        caseStudyContentContainer.classList.add("hidden");
+        setTimeout(() => {
+          caseStudyContentContainer.innerHTML = `
+          <div class="case-study-left">
+            <img src="${partner.caseStudyMedia}" alt="Case Study Media" class="case-study-media">
+          </div>
+          <div class="case-study-right">
+            <h3 class="case-study-subheading">${currentContent.subheading}</h3>
+    
+            <div class="case-study-section">
+              <p class="case-study-title">Problem</p>
+              <p class="case-study-text">${currentContent.problem}</p>
+            </div>
+    
+            <div class="case-study-section">
+              <p class="case-study-title">Solution</p>
+              <p class="case-study-text">${currentContent.solution}</p>
+            </div>
+    
+            <div class="case-study-section">
+              <p class="case-study-title">Collaboration</p>
+              <p class="case-study-text">${currentContent.collaboration}</p>
+            </div>
+          </div>
+        `;
+          caseStudyContentContainer.classList.remove("hidden");
+        }, 300);
+      };
+      var updateTabContent = updateTabContent2;
+      const formattedPartnerName = partnerName.toLowerCase();
+      const partner = partnersData[formattedPartnerName];
+      const components = document.querySelectorAll("[sse-component]");
+      components.forEach((element) => {
+        const componentValue = element.getAttribute("sse-component");
+        if (componentValue) {
+          switch (componentValue) {
+            case "partner-page":
+              const partnerPageSection = element;
+              partnerPageSection.innerHTML += individualPartnerPage(formattedPartnerName, partnersData);
+          }
+        }
+      });
+      const caseStudyTabsContainer = document.querySelector(".case-study-tabs");
+      const caseStudyContentContainer = document.querySelector(".case-study-content");
+      partner.caseStudyNumber && partner.caseStudyTabNames.forEach((tabName, index) => {
+        const tabButton = document.createElement("button");
+        tabButton.classList.add("tab-button");
+        tabButton.dataset.tab = String(index + 1);
+        tabButton.innerHTML = tabName;
+        caseStudyTabsContainer == null ? void 0 : caseStudyTabsContainer.appendChild(tabButton);
+        tabButton.addEventListener("click", () => {
+          document.querySelectorAll(".tab-button").forEach((btn) => btn.classList.remove("active"));
+          tabButton.classList.add("active");
+          updateTabContent2(index);
+        });
+      });
+      updateTabContent2(0);
+    }
+  });
+
+  // src/pages/individualPartner.ts
+  var IndividualPartner = class {
+    constructor() {
+    }
+    setup() {
+    }
+    exec() {
+      const path = window.location.pathname;
+      const segments = path.split("/");
+      const partnerName = segments.pop() || segments.pop();
+      const validPartnerName = partnerName;
+      const formattedPartnerName = validPartnerName.toLowerCase();
+      console.log(formattedPartnerName);
+      const partner = partnersData[formattedPartnerName];
+      console.log(partner);
+      const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
+      console.log(partnerHTML);
+      const partnerNameLowerCase = partner.name.toLowerCase();
+      window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${partnerNameLowerCase}`);
+>>>>>>> dev
     }
   };
 
@@ -385,7 +698,11 @@
     var routeDispatcher2 = new RouteDispatcher(Site);
     routeDispatcher2.routes = {
       "/": HomePage,
+<<<<<<< HEAD
       "/partner/*": PartnerPage,
+=======
+      "/partner/*": IndividualPartner,
+>>>>>>> dev
       "/partner": PartnerPage
     };
     return routeDispatcher2;
@@ -420,6 +737,7 @@
     }
   };
 
+<<<<<<< HEAD
   // src/components/toggleText.ts
   var ToggleText = class {
     constructor(buttonId, textId) {
@@ -440,6 +758,8 @@
     }
   };
 
+=======
+>>>>>>> dev
   // src/index.ts
   document.addEventListener("DOMContentLoaded", () => {
     const toggle = new ToggleText("toggle-button", "toggle-text");
