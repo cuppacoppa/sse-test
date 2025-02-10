@@ -676,11 +676,8 @@
       const partnerName = segments.pop() || segments.pop();
       const validPartnerName = partnerName;
       const formattedPartnerName = validPartnerName.toLowerCase();
-      console.log(formattedPartnerName);
       const partner = partnersData[formattedPartnerName];
-      console.log(partner);
       const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
-      console.log(partnerHTML);
       const partnerNameLowerCase = partner.name.toLowerCase();
       window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${partnerNameLowerCase}`);
     }

@@ -24,14 +24,14 @@ export class IndividualPartner implements IModule {
     const validPartnerName = partnerName as string;
     const formattedPartnerName = validPartnerName.toLowerCase();
 
-    console.log(formattedPartnerName)
+    // console.log(formattedPartnerName)
     // Now you can use validPartnerName safely
     const partner = partnersData[formattedPartnerName];
-    console.log(partner);
+    // console.log(partner);
 
     // CALL THE INDIVIDUALPARTNER.TS COMPONENT HERE TO GENERATE HTML
     const partnerHTML = individualPartnerPage(formattedPartnerName, partnersData);
-    console.log(partnerHTML)
+    // console.log(partnerHTML)
     const partnerNameLowerCase =  partner.name.toLowerCase();
 
     // Redirect to partner/learn page with partnerName as a URL parameter
