@@ -14,10 +14,7 @@ import { HomePage } from "./pages/home";
 import { RouteDispatcher } from "@sygnal/sse";
 import { Site } from "./site";
 import { PartnerPage } from "./pages/partner";
-<<<<<<< HEAD
-=======
 import { IndividualPartner } from "./pages/individualPartner";
->>>>>>> dev
 
 export const routeDispatcher = (): RouteDispatcher => {
     
@@ -26,14 +23,9 @@ export const routeDispatcher = (): RouteDispatcher => {
 
         // Site pages
         '/': HomePage,
-<<<<<<< HEAD
-        '/partner/*': PartnerPage, 
-        '/partner': PartnerPage, 
-=======
         '/partner/*': IndividualPartner,  // Dynamic route for individual partner
         '/partner': PartnerPage,
 
->>>>>>> dev
         // TEST Pages
     };
 

@@ -369,9 +369,6 @@
     }
   };
 
-<<<<<<< HEAD
-  // src/pages/partner.ts
-=======
   // src/components/mainPartnerCard.ts
   var mainPartnerCard = (partner) => {
     return `
@@ -449,7 +446,6 @@
     { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Communication"] },
     { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Productivity", "Security"] }
   ];
->>>>>>> dev
   var PartnerPage = class {
     constructor() {
     }
@@ -457,8 +453,6 @@
     }
     exec() {
       console.log("partner page loaded");
-<<<<<<< HEAD
-=======
       const components = document.querySelectorAll("[sse-component]");
       components.forEach((element) => {
         const componentValue = element.getAttribute("sse-component");
@@ -689,7 +683,6 @@
       console.log(partnerHTML);
       const partnerNameLowerCase = partner.name.toLowerCase();
       window.location.replace(`https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=${partnerNameLowerCase}`);
->>>>>>> dev
     }
   };
 
@@ -698,11 +691,7 @@
     var routeDispatcher2 = new RouteDispatcher(Site);
     routeDispatcher2.routes = {
       "/": HomePage,
-<<<<<<< HEAD
-      "/partner/*": PartnerPage,
-=======
       "/partner/*": IndividualPartner,
->>>>>>> dev
       "/partner": PartnerPage
     };
     return routeDispatcher2;
@@ -737,7 +726,6 @@
     }
   };
 
-<<<<<<< HEAD
   // src/components/toggleText.ts
   var ToggleText = class {
     constructor(buttonId, textId) {
@@ -758,8 +746,6 @@
     }
   };
 
-=======
->>>>>>> dev
   // src/index.ts
   document.addEventListener("DOMContentLoaded", () => {
     const toggle = new ToggleText("toggle-button", "toggle-text");

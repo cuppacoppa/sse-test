@@ -1,8 +1,5 @@
 "use strict";
 (() => {
-<<<<<<< HEAD
-  // src/pages/partner.ts
-=======
   // src/components/mainPartnerCard.ts
   var mainPartnerCard = (partner) => {
     return `
@@ -80,7 +77,6 @@
     { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Communication"] },
     { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Productivity", "Security"] }
   ];
->>>>>>> dev
   var PartnerPage = class {
     constructor() {
     }
@@ -88,10 +84,6 @@
     }
     exec() {
       console.log("partner page loaded");
-<<<<<<< HEAD
-    }
-  };
-=======
       const components = document.querySelectorAll("[sse-component]");
       components.forEach((element) => {
         const componentValue = element.getAttribute("sse-component");
@@ -140,6 +132,5 @@
       container.innerHTML += applicationPartnerCard(partner);
     });
   };
->>>>>>> dev
 })();
 //# sourceMappingURL=partner.js.map

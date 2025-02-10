@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-
-/*
- * Page | Partner
- */
-
-import { IModule } from "@sygnal/sse";
- 
-
-export class PartnerPage implements IModule {
-
-  constructor() {
-  }
-
-  setup() {
-        
-  }
-
-  exec() {
-    console.log('partner page loaded')
-  }
-
-}
-=======
 import { IModule } from "@sygnal/sse";
 import { mainPartnerCard } from "../components/mainPartnerCard";
 import { applicationPartnerCard } from "../components/applicationPartnerCard";
@@ -117,4 +93,3 @@ const renderApplicationPartners = (container: HTMLElement) => {
         container.innerHTML += applicationPartnerCard(partner);
     });
 };
->>>>>>> dev
