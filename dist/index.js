@@ -461,7 +461,7 @@
             case "main-partner-card-list":
               const mainPartnerSection = element;
               const partnersMain = [
-                { name: "Partner A", logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", link: "https://partnerA.com" },
+                { name: "Partner A", logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", link: "https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=partnera" },
                 { name: "Partner B", logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png" }
               ];
               mainPartnerSection.classList.add("partner-card-list");
