@@ -13,7 +13,7 @@
 
   // src/pages/partner.ts
   var partnersApp = [
-    { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Productivity"] },
+    { logoUrl: "https://cdn.prod.website-files.com/679e860587d809fd4d2d7b55/67aa34cea35c6f2a2eda70bb_Oracle_Logo.svg.png", tags: ["Productivity"] },
     { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Communication"] },
     { logoUrl: "https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png", tags: ["Productivity", "Security"] }
   ];

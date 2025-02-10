@@ -10,7 +10,7 @@ interface Partner {
 }
 
 export const partnersApp: Partner[] = [
-    { logoUrl: 'https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png', tags: ['Productivity'] },
+    { logoUrl: 'https://cdn.prod.website-files.com/679e860587d809fd4d2d7b55/67aa34cea35c6f2a2eda70bb_Oracle_Logo.svg.png', tags: ['Productivity'] },
     { logoUrl: 'https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png', tags: ['Communication'] },
     { logoUrl: 'https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png', tags: ['Productivity', 'Security'] },
 ];
@@ -34,7 +34,7 @@ export class PartnerPage implements IModule {
                     case 'main-partner-card-list':
                         const mainPartnerSection = element;
                         const partnersMain = [
-                            { name: 'Partner A', logoUrl: 'https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png', link: 'https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=partnera' },
+                            { name: 'Boeing', logoUrl: 'https://cdn.prod.website-files.com/679e860587d809fd4d2d7b55/67aa3479c6a80a7987c26917_Boeing_full_logo.svg.png', link: 'https://mats-dapper-site-d83a81.webflow.io/partner/learn?partner=partnera' },
                             { name: 'Partner B', logoUrl: 'https://cdn.pixabay.com/photo/2017/07/25/11/59/logo-2537871_1280.png' },
                         ];
                         mainPartnerSection.classList.add("partner-card-list");
