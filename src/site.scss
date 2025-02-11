@@ -25,6 +25,10 @@
   }
 }
 
+.main-partner-section {
+  padding-top: 48px;
+}
+
 .main-partner__icon {
   position: absolute;
   bottom: 10px;
@@ -49,6 +53,9 @@
   background-color: darkgrey;
 }
 
+.application-partner-section {
+  padding-top: 48px;
+}
 
 /* Application Partner Card Styles */
 .application-partner .logo-card__content img {
@@ -134,6 +141,10 @@
     flex: 1 1 100%; /* Makes them full width on smaller screens */
     max-width: none;
   }
+}
+
+.hero-partner-section {
+  padding-top: 48px;
 }
 
 .hero__content {
@@ -573,7 +584,11 @@
 }
 
 .app-container{
-  max-width: 115rem; /* Adjust as needed */
+  max-width: 71.875rem; /* Adjust as needed */
   margin: 0 auto; /* Centers the container horizontally */
   width: 95%;
+}
+
+body {
+  font-family: "PP Mori", sans-serif; /* Replace with your font */
 }
